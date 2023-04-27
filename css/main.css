@@ -59,3 +59,7 @@ div#grid {
 footer {
     height: 71px;
 }
+
+.disable{
+    pointer-events: none;
+}

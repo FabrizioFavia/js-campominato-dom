@@ -1,6 +1,7 @@
 let cellContainer = document.getElementById("grid");
 let startBtn = document.getElementById("start");
 let cellNumber = 49;
+let points = 0;
 
 
 function difficultySelect(value) {
@@ -11,6 +12,10 @@ function difficultySelect(value) {
 startBtn.addEventListener("click", function () {
 
     cellContainer.innerHTML = "";
+    points = 0;
+    let bombArray = [];
+    bombArray = getBombNumber(cellNumber);
+    console.log(bombArray);
 
     for (let i = 1; i <= cellNumber; i++) {
 
@@ -30,21 +35,23 @@ startBtn.addEventListener("click", function () {
         }
 
         cell.append(i);
-        
 
-        let bomb = getBombNumber(cellNumber);
-
-
-        getBombNumber(cellNumber);
-
-        if (bomb == cell.innerText) {
+        if (bombArray.includes(parseInt(cell.innerText))) {
             cell.addEventListener("click", function () {
                 this.classList.toggle("bckgRed");
+                console.log(`Hai perso, il tuo punteggio è ${points}`);
+                let cells = document.getElementsByClassName("cell");
+
+                for (let i = 0; i < cells.length; i++) {
+                    cells[i].classList.add("disable");
+                    
+                }
             })
         } else {
             cell.addEventListener("click", function () {
                 this.classList.toggle("bckgBlue");
-                console.log(this.innerText);
+                points += 1;
+                console.log(points);
             })
         }
 
@@ -55,15 +62,18 @@ startBtn.addEventListener("click", function () {
 })
 
 function getBombNumber(cellNumber) {
-
+    let bombArray = [];
     let bomb;
 
-    for (let i = 1; i <= 16; i++) {
+    while (bombArray.length < 16) {
 
         bomb = (Math.floor(Math.random() * cellNumber));
-        console.log(bomb);
-        
+
+        if (bombArray.includes(bomb) == false) {
+            bombArray.push(bomb);
+        }
+
     }
-    
-    return bomb;
+
+    return bombArray;
 }
