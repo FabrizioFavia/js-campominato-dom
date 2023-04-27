@@ -52,6 +52,10 @@ div#grid {
     background-color: lightseagreen;
 }
 
+.bckgRed {
+    background-color: red;
+}
+
 footer {
     height: 71px;
 }

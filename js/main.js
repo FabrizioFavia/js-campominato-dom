@@ -2,6 +2,7 @@ let cellContainer = document.getElementById("grid");
 let startBtn = document.getElementById("start");
 let cellNumber = 49;
 
+
 function difficultySelect(value) {
 
     cellNumber = value;
@@ -29,11 +30,23 @@ startBtn.addEventListener("click", function () {
         }
 
         cell.append(i);
+        
 
-        cell.addEventListener("click", function () {
-            this.classList.toggle("bckgBlue");
-            console.log(this.innerText);
-        })
+        let bomb = getBombNumber(cellNumber);
+
+
+        getBombNumber(cellNumber);
+
+        if (bomb == cell.innerText) {
+            cell.addEventListener("click", function () {
+                this.classList.toggle("bckgRed");
+            })
+        } else {
+            cell.addEventListener("click", function () {
+                this.classList.toggle("bckgBlue");
+                console.log(this.innerText);
+            })
+        }
 
         cellContainer.appendChild(cell);
     }
@@ -46,10 +59,11 @@ function getBombNumber(cellNumber) {
     let bomb;
 
     for (let i = 1; i <= 16; i++) {
+
         bomb = (Math.floor(Math.random() * cellNumber));
         console.log(bomb);
+        
     }
-    console.log(`Il numero di celle è: ${cellNumber}`)
+    
     return bomb;
-
 }
