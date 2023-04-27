@@ -6,10 +6,11 @@
 
 main {
     width: 100vw;
-    height: calc(100vh - 180px);
+    
     background-color: aquamarine;
     display: inline-block;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -20,8 +21,8 @@ main {
 }
 
 div#grid {
-    width: 550px;
-    height: 550px;
+    width: 500px;
+    height: 500px;
     background-color: white;
 }
 
