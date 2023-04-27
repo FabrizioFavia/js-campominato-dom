@@ -1,0 +1,57 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    width: 100vw;
+    height: calc(100vh - 180px);
+    background-color: aquamarine;
+    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.fa-bomb {
+    font-size: 60px;
+}
+
+div#grid {
+    width: 550px;
+    height: 550px;
+    background-color: white;
+}
+
+.cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+}
+
+.easyCell {
+    width: calc(100% / 7);
+    height: calc(100% / 7);
+
+}
+
+.mediumCell {
+    width: calc(100% / 9);
+    height: calc(100% / 9);
+}
+
+.hardCell {
+    width: calc(100% / 10);
+    height: calc(100% / 10);
+}
+
+.bckgBlue {
+    background-color: lightseagreen;
+}
+
+footer {
+    height: 71px;
+}
